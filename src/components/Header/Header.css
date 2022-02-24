@@ -1,0 +1,28 @@
+.Header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #000;
+}
+
+.Header h1 {
+  margin: 15px;
+}
+
+.Header ul{
+  display: flex;
+  align-items: center;
+}
+
+.Header ul li{
+  list-style-type: none;
+}
+
+.Header ul li a{
+  font-size: 1.3rem;
+  color: #111;
+  margin-left: 15px;
+}
+
+.Header ul li a:hover{
+  color: rgb(32, 82, 133)
+}
