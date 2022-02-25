@@ -9,9 +9,9 @@ import "./List.css";
 function List() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-  useEffect(() => dispatch(fetchProducts()), [dispatch, products.isChanged]);
-
-
+  
+  useEffect(() => dispatch(fetchProducts()), [dispatch, products.product]);
+ 
   return (
     <div className="List">
       <table>

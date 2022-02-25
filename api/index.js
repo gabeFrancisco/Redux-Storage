@@ -4,30 +4,37 @@ const app = express();
 const cors = require("cors");
 const { json } = require("body-parser");
 
+//Database 
+const db = require('./database/database')
+const Products = require('./database/models/products')
+ 
+db.authenticate()
+  .then(() => {
+    console.log("Database connected successfully!")
+  })
+  .catch((err) => {
+    console.log("An error has occurred: " + err)
+  })
+
 app.use(cors())
 app.use(json())
 
-const products = [
-  {id: 7, name: 'Bible', category: 'Theological Books', quantity: 700, price: 12},
-  {id: 8, name: 'Notebook', category: 'Computers', quantity: 17, price: 2800},
-  {id: 12, name: 'Hoodie', category: 'Clothes', quantity: 42, price: 89},
-]
-
 app.get("/products", (req,res) => {
-  res.json(products)
+  Products.findAll({raw: true}).then(products => {
+    res.json(products)
+  })
 })
 
 app.post("/products", (req, res) => {
-  const product = {
-    id: products.length + 1,
+  Products.create({
     name: req.body.name,
     category: req.body.category,
     quantity: req.body.quantity,
     price: req.body.price
-  }
-
-  products.push(product)
-  res.json("Product added!")
+  }).then(
+    console.log("\nProduct inserted into DB!")
+  )
+  .catch((err) => console.log("\nAn error has occurred: " + err))
 })
 
 app.listen(PORT, err => {
