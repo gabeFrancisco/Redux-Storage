@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { fetchProducts } from '../../store/actions/productsActions'
+import Field from '../Field/Field'
 
 import './List.css'
 
 function List(){
+  const dispatch = useDispatch()
+  useEffect(() => dispatch(fetchProducts()), [dispatch])
+
+  const products = useSelector(state => state.products.list)
+
   return(
     <div className='List'>
       <table>
@@ -16,13 +25,16 @@ function List(){
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>7</th>
-            <td>Bible</td>
-            <td>Books</td>
-            <td>700</td>
-            <td>$12,00</td>
-          </tr>
+          {products.map(el => {return(
+            <tr>
+              <th>{el.id}</th>
+              <td>{el.name}</td>
+              <td>{el.category}</td>
+              <td>{el.quantity}</td>
+              <td>{el.price}</td>
+            </tr>
+          )})}
+          <Field/>
         </tbody>
       </table>
     </div>

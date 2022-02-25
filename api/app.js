@@ -8,7 +8,9 @@ app.use(cors())
 app.use(json())
 
 const products = [
-  {id: 7, name: 'Bible', category: 'Theological Books', quantity: 700, price: 12}
+  {id: 7, name: 'Bible', category: 'Theological Books', quantity: 700, price: 12},
+  {id: 8, name: 'Notebook', category: 'Computers', quantity: 17, price: 2800},
+  {id: 12, name: 'Hoodie', category: 'Clothes', quantity: 42, price: 89},
 ]
 
 app.get("/products", (req,res) => {
