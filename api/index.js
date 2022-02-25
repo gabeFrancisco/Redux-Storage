@@ -17,6 +17,19 @@ app.get("/products", (req,res) => {
   res.json(products)
 })
 
+app.post("/products", (req, res) => {
+  const product = {
+    id: products.length + 1,
+    name: req.body.name,
+    category: req.body.category,
+    quantity: req.body.quantity,
+    price: req.body.price
+  }
+
+  products.push(product)
+  res.json("Product added!")
+})
+
 app.listen(PORT, err => {
   if(err)
     console.log(`An error has occurred: ${err}`)

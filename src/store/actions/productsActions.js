@@ -11,3 +11,11 @@ export function fetchProducts() {
     })
   };
 }
+
+export function addProduct(product){
+  axios.post(BASE_URL, product)
+  return{
+    type: 'PRODUCT_ADDED',
+    payload: product
+  }
+}
