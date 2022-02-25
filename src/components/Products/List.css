@@ -1,0 +1,18 @@
+.List{
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  width: 80vw;  
+  margin: 0 auto;
+}
+
+.List table thead tr th{
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 0.7rem 7rem 0.7rem 0.7rem;
+}
+
+.List table tbody tr th, td{
+  padding-right: 1rem;
+  border-bottom: 1px solid #000;
+  padding: 7px;
+}
