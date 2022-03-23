@@ -1,10 +1,14 @@
 import React from "react";
+import "./Field.css";
+
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../store/actions/productsActions";
 
-function Field(props) {
-  const dispatch = useDispatch()
+import * as Yup from "yup";
+
+function Field() {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -12,6 +16,13 @@ function Field(props) {
       quantity: 0,
       price: 0,
     },
+    validationSchema: Yup.object({
+      name: Yup.string().max(30, "Max lenght is 30!").required("Required!"),
+      category: Yup.string().max(30, "Max lenght is 30!").required("Required!"),
+      quantity: Yup.number().min(1, "None is invalid!").required("Required!"),
+      price: Yup.number().min(1, "None is invalid!").required("Required!"),
+    }),
+    validateOnChange: false,
     onSubmit: (values) => {
       const product = {
         name: values.name,
@@ -19,7 +30,6 @@ function Field(props) {
         quantity: values.quantity,
         price: values.price,
       };
-
       dispatch(addProduct(product))
     },
   });
@@ -34,6 +44,7 @@ function Field(props) {
           onChange={formik.handleChange}
           value={formik.values.name}
         ></input>
+        {formik.errors.name && <p>{formik.errors.name}</p>}
       </td>
       <td>
         <input
@@ -43,6 +54,7 @@ function Field(props) {
           onChange={formik.handleChange}
           value={formik.values.category}
         ></input>
+        {formik.errors.category && <p>{formik.errors.category}</p>}
       </td>
       <td>
         <input
@@ -52,6 +64,7 @@ function Field(props) {
           onChange={formik.handleChange}
           value={formik.values.quantity}
         ></input>
+        {formik.errors.quantity && <p>{formik.errors.quantity}</p>}
       </td>
       <td>
         <input
@@ -61,9 +74,12 @@ function Field(props) {
           onChange={formik.handleChange}
           value={formik.values.price}
         ></input>
+        {formik.errors.price && <p>{formik.errors.price}</p>}
       </td>
       <td>
-        <button type="button" onClick={formik.handleSubmit}>+</button>
+        <button type="button" onClick={formik.handleSubmit}>
+          +
+        </button>
       </td>
     </tr>
   );

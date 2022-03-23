@@ -8,9 +8,9 @@ import "./List.css";
 
 function List() {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products);
-  
-  useEffect(() => dispatch(fetchProducts()), [dispatch, products.product]);
+  const products = useSelector((state) => state.products.list);
+
+  useEffect(() => dispatch(fetchProducts()), [dispatch]);
  
   return (
     <div className="List">
@@ -25,7 +25,7 @@ function List() {
           </tr>
         </thead>
         <tbody>
-          {products.list.map((el, key) => {
+          {products ? products.map((el, key) => {
             return (
               <tr key={key}>
                 <th>{el.id}</th>
@@ -35,7 +35,9 @@ function List() {
                 <td>${el.price}</td>
               </tr>
             );
-          })}
+          }): (
+            <h1 id="loading">Loading...</h1>
+          )}
           <Field />
         </tbody>
       </table>

@@ -2,20 +2,30 @@ import axios from "axios";
 const BASE_URL = "http://localhost:7000/products";
 
 export function fetchProducts() {
-  return (dispatch) => {
+  return async (dispatch) => {
     axios.get(BASE_URL).then((res) => {
-      return dispatch({
+      dispatch({
         type: "PRODUCTS_FETCHED",
-        payload: res.data,
+        list: res.data,
       });
-    })
+    });
   };
 }
 
-export function addProduct(product){
-  axios.post(BASE_URL, product)
-  return{
-    type: 'PRODUCT_ADDED',
-    payload: product
-  }
+export function addProduct(product) {
+  return async (dispatch) => {
+    await axios
+      .post(BASE_URL, product)
+      .then((res) => {
+        if (res.status === 200) {
+          dispatch(fetchProducts());
+          console.log(product);
+        }
+      })
+      .then(
+        dispatch({
+          type: "PRODUCT_ADDED",
+        })
+      );
+  };
 }

@@ -2,6 +2,11 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid #000;
+  position: sticky;
+  top: 0;
+  /* #a9d1e0; */
+  background: #ffffff;
+  z-index: 100;
 }
 
 .Header h1 {
@@ -25,4 +30,19 @@
 
 .Header ul li a:hover{
   color: rgb(32, 82, 133)
+}
+
+.Header .Icons{
+  display: flex;
+  align-items: center;
+}
+
+.Header .Icons img{
+  width: 50px;
+  height: auto;
+  margin: 5px;
+}
+
+.Header .Icons #redux{
+  width: 45px;
 }

@@ -7,9 +7,11 @@ const INITIAL_STATE = {
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case "PRODUCTS_FETCHED":
-      return { ...state, list: action.payload };
+      return { ...state, list: action.list };
     case "PRODUCT_ADDED":
-      return { ...state, product: action.payload}
+      return {
+        ...state,
+      };
     default:
       return state;
   }

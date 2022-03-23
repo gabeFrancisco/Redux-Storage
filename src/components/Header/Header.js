@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom'
 function Header() {
   return (
     <div className="Header">
+      <div className="Icons">
+        <img src="https://icon-library.com/images/react-icon/react-icon-15.jpg" alt="React Logo"/>
+        <img id="redux" src="https://cdn.iconscout.com/icon/free/png-256/redux-3628430-3032265.png" alt="Redux logo"/>
+      </div>
       <div className="Title">
         <h1>Redux-Storage</h1>
       </div>

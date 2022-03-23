@@ -1,3 +1,12 @@
+@keyframes AnimateContent{
+  0%{
+    transform: translateX(-20px)
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+
 body {
   margin: 0;
   font-family: 'Inconsolata', monospace;
@@ -13,4 +22,8 @@ code {
 
 .content{
   margin: 5rem;
+}
+
+.animateContent{
+  animation: AnimateContent 0.7s forwards;
 }

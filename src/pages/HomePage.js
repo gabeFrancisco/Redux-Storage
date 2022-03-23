@@ -3,7 +3,7 @@ import SectionTitle from "../components/SectionTitle/SectionTitle";
 
 function HomePage() {
   return (
-    <div>
+    <div className="animateContent">
       <SectionTitle
         title="Welcome to the Redux-Storage!"
         subtitle="This app is a study for myself, for fixing the Redux concepts in my mind ;)"
