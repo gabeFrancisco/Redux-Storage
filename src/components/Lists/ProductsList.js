@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchProducts } from "../../store/actions/productsActions";
-import Field from "../Field/Field";
+import ProductField from "../Fields/ProductField";
 
 import "./List.css";
 
-function List() {
+function ProductsList() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.list);
 
@@ -38,11 +38,11 @@ function List() {
           }): (
             <h1 id="loading">Loading...</h1>
           )}
-          <Field />
+          <ProductField/>
         </tbody>
       </table>
     </div>
   );
 }
 
-export default List;
+export default ProductsList;

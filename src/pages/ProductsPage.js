@@ -1,6 +1,6 @@
 import React from "redux";
 import Container from "../components/Container/Container";
-import List from "../components/Products/List";
+import List from "../components/Lists/ProductsList";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 
 function ProductPage() {
@@ -17,9 +17,9 @@ function ProductPage() {
       <Container>
         <h2>Motivation...</h2>
         <p>
-          In this section, I'l will try to implement all the basic CRUD
-          operations to work in Redux state, using search algorithm for each
-          product, according to the use case
+          In this section, the app will create, update, delete and list all the products from the API.
+          The products' categories will be listed too with the API, so in order to asign one, you need to create it first.
+          I made this way to make multiple entity relations within the Redux state.
         </p>
       </Container>
     </div>

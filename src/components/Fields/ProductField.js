@@ -1,5 +1,5 @@
 import React from "react";
-import "./Field.css";
+import "./ProductField.css";
 
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
@@ -7,7 +7,7 @@ import { addProduct } from "../../store/actions/productsActions";
 
 import * as Yup from "yup";
 
-function Field() {
+function ProductField() {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -87,4 +87,4 @@ function Field() {
   );
 }
 
-export default Field;
+export default ProductField;
