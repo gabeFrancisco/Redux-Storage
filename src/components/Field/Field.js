@@ -23,13 +23,15 @@ function Field() {
       price: Yup.number().min(1, "None is invalid!").required("Required!"),
     }),
     validateOnChange: false,
-    onSubmit: (values) => {
+    onSubmit: (values, {resetForm}) => {
       const product = {
         name: values.name,
         category: values.category,
         quantity: values.quantity,
         price: values.price,
       };
+
+      resetForm();
       dispatch(addProduct(product))
     },
   });
@@ -39,7 +41,7 @@ function Field() {
       <td>
         <input
           type="text"
-          placeholder="name"
+          placeholder="Name"
           name="name"
           onChange={formik.handleChange}
           value={formik.values.name}
@@ -49,7 +51,7 @@ function Field() {
       <td>
         <input
           type="text"
-          placeholder="category"
+          placeholder="Category"
           name="category"
           onChange={formik.handleChange}
           value={formik.values.category}
@@ -59,7 +61,7 @@ function Field() {
       <td>
         <input
           type="number"
-          placeholder="quantity"
+          placeholder="Quantity"
           name="quantity"
           onChange={formik.handleChange}
           value={formik.values.quantity}
