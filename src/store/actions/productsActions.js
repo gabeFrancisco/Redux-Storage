@@ -19,7 +19,6 @@ export function addProduct(product) {
       .then((res) => {
         if (res.status === 200) {
           dispatch(fetchProducts());
-          console.log(product);
         }
       })
       .then(

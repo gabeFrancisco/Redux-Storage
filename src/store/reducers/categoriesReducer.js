@@ -1,14 +1,14 @@
 const INITIAL_STATE = {
   list: [],
-  product: {},
+  category: {},
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case "PRODUCTS_FETCHED":
+    case "CATEGORIES_FETCHED":
       return { ...state, list: action.list };
-    case "PRODUCT_ADDED":
+    case "CATEGORY_ADDED":
       return { ...state };
     default:
       return state;

@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProductField.css";
+import "./Field.css";
 
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
@@ -46,7 +46,6 @@ function ProductField() {
           onChange={formik.handleChange}
           value={formik.values.name}
         ></input>
-        {formik.errors.name && <p>{formik.errors.name}</p>}
       </td>
       <td>
         <input

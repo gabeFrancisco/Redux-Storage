@@ -4,9 +4,11 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import productsReducer from './reducers/productsReducer'
 
 import thunk from 'redux-thunk'
+import categoriesReducer from './reducers/categoriesReducer'
 
 const reducers = combineReducers({
-  products: productsReducer
+  products: productsReducer,
+  categories: categoriesReducer
 })
 
 function storeConfig(){

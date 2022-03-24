@@ -4,42 +4,59 @@ const app = express();
 const cors = require("cors");
 const { json } = require("body-parser");
 
-//Database 
-const db = require('./database/database')
-const Products = require('./database/models/products')
- 
+//Database
+const db = require("./database/database");
+const Products = require("./database/models/products");
+const Categories = require("./database/models/categories");
+
 db.authenticate()
   .then(() => {
-    console.log("Database connected successfully!")
+    console.log("Database connected successfully!");
   })
   .catch((err) => {
-    console.log("An error has occurred: " + err)
-  })
+    console.log("An error has occurred: " + err);
+  });
 
-app.use(cors())
-app.use(json())
+app.use(cors());
+app.use(json());
 
-app.get("/products", async (req,res) => {
-  await Products.findAll({raw: true}).then(products => {
-    return res.json(products)
-  })
-})
+//===========================//PRODUCTS//====================================
+
+app.get("/products", async (req, res) => {
+  await Products.findAll({ raw: true }).then((products) => {
+    return res.json(products);
+  });
+});
 
 app.post("/products", async (req, res) => {
   await Products.create({
     name: req.body.name,
     category: req.body.category,
     quantity: req.body.quantity,
-    price: req.body.price
-})
-  .catch((err) => res.json("\nAn error has occurred: " + err))
-  
-  res.sendStatus(200);
-})
+    price: req.body.price,
+  }).catch((err) => res.json("\nAn error has occurred: " + err));
 
-app.listen(PORT, err => {
-  if(err)
-    console.log(`An error has occurred: ${err}`)
-  else
-    console.log(`App is listening on port ${PORT}`)
-})
+  res.sendStatus(200);
+});
+
+//===========================//CATEGORIES//=======================================
+
+app.get("/categories", async (req, res) => {
+  await Categories.findAll({ raw: true }).then((categories) => {
+    return res.json(categories);
+  });
+});
+
+app.post("/categories", async (req, res) => {
+  await Categories.create({
+    name: req.body.name,
+    color: req.body.color,
+  }).catch((err) => res.json("\nAn error has occurred: " + err));
+
+  res.sendStatus(200);
+});
+
+app.listen(PORT, (err) => {
+  if (err) console.log(`An error has occurred: ${err}`);
+  else console.log(`App is listening on port ${PORT}`);
+});

@@ -3,6 +3,8 @@
   border-right: 1px solid #000;
   width: 80vw;  
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .List table thead tr th{

@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "../components/Container/Container";
+import CategoriesList from "../components/Lists/CategoriesList";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 
 function CategoriesPage() {
@@ -11,7 +12,7 @@ function CategoriesPage() {
       />
 
       <Container>
-        
+        <CategoriesList/>
       </Container>
     </div>
   ); 
