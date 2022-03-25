@@ -5,7 +5,7 @@ import CategoryField from "../Fields/CategoryField";
 
 import "./List.css";
 
-function CategoriesList() {
+export default function CategoriesList() {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.list);
 
@@ -48,4 +48,3 @@ function CategoriesList() {
   );
 }
 
-export default CategoriesList;

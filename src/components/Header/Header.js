@@ -4,7 +4,7 @@ import './Header.css'
 
 import { Link } from 'react-router-dom'
 
-function Header() {
+export default function Header() {
   return (
     <div className="Header">
       <div className="Icons">
@@ -31,5 +31,3 @@ function Header() {
     </div>
   );
 }
-
-export default Header;

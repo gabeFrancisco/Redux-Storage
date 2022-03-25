@@ -3,7 +3,7 @@ import Container from "../components/Container/Container";
 import List from "../components/Lists/ProductsList";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 
-function ProductPage() {
+export default function ProductPage() {
   return (
     <div className="animateContent">
       <SectionTitle
@@ -25,5 +25,3 @@ function ProductPage() {
     </div>
   );
 }
-
-export default ProductPage;

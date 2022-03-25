@@ -2,7 +2,7 @@ import React from 'react'
 
 import './SectionTitle.css'
 
-function SectionTitle(props){
+export default function SectionTitle(props){
   return(
     <div className='SectionTitle'>
       <h1>{props.title}</h1>
@@ -12,4 +12,3 @@ function SectionTitle(props){
   )
 }
 
-export default SectionTitle

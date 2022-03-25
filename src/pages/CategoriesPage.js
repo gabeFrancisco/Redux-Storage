@@ -3,7 +3,7 @@ import Container from "../components/Container/Container";
 import CategoriesList from "../components/Lists/CategoriesList";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 
-function CategoriesPage() {
+export default function CategoriesPage() {
   return (
     <div className="animateContent">
       <SectionTitle
@@ -17,5 +17,3 @@ function CategoriesPage() {
     </div>
   ); 
 }
-
-export default CategoriesPage;

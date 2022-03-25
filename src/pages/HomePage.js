@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../components/Container/Container";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 
-function HomePage() {
+export default function HomePage() {
   return (
     <div className="animateContent">
       <SectionTitle
@@ -28,5 +28,3 @@ function HomePage() {
     </div>
   );
 }
-
-export default HomePage;

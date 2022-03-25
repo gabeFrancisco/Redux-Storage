@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { addCategory } from "../../store/actions/categoriesActions";
 
-function CategoryField() {
+export default function CategoryField() {
   const [color, setColor] = useState("#ffffff");
   const dispatch = useDispatch();
 
@@ -49,13 +49,14 @@ function CategoryField() {
           type="text"
           palceholder="Color"
           name="color"
-          readOnly={true}
           value={color}
+          onChange={e => setColor(e.target.value)}
+          max
         ></input>
         <input
           type="color"
           value={color}
-          onChange={color => setColor(color.target.value)}
+          onChange={e=> setColor(e.target.value)}
         ></input>
       </td>
       <td>
@@ -67,4 +68,4 @@ function CategoryField() {
   );
 }
 
-export default CategoryField;
+

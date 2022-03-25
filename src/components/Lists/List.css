@@ -22,3 +22,14 @@
   margin: 1rem;
 }
 
+.category{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.category #category-color{
+  padding: 5px 5px;
+  width: 10px;
+}
+

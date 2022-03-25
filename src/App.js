@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductsPage";
 import CategoriesPage from "./pages/CategoriesPage";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <div className="App">
@@ -20,5 +20,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;
