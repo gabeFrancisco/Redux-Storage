@@ -7,7 +7,9 @@ export default function SectionTitle(props){
     <div className='SectionTitle'>
       <h1>{props.title}</h1>
       <hr/>
-      <h3>{props.subtitle}</h3>
+      {props.subtitle && (
+        <h3>{props.subtitle}</h3>
+      )}
     </div>
   )
 }

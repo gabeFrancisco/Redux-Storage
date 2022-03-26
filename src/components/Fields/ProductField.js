@@ -80,7 +80,7 @@ export default function ProductField() {
       <td>
         <input
           type="number"
-          placeholder="quantity"
+          placeholder="quantit;y"
           name="quantity"
           onChange={formik.handleChange}
           value={formik.values.quantity}

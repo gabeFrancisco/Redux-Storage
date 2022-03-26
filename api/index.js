@@ -69,6 +69,20 @@ app.get("/customers/:id", async (req, res) => {
   await Customers.findByPk(req.params.id).then(result => res.json(result))
 })
 
+app.post("/customers", async (req, res) => {
+  await Customers.create({
+    name: req.body.name,
+    phone: req.body.phone,
+    email: req.body.email,
+    address: req.body.address,
+    city: req.body.city,
+    country: req.body.country,
+    postalCode: req.body.postalCode
+  }).catch(err => res.sendStatus(500))
+
+  res.sendStatus(200)
+})
+
 app.listen(PORT, (err) => {
   if (err) console.log(`An error has occurred: ${err}`);
   else console.log(`App is listening on port ${PORT}`);

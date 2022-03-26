@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Container from "../components/Container/Container";
-import CustomerInfo from "../components/CustomerInfo/CustomerInfo";
+import CustomerInfo from "../components/Customer/CustomerInfo";
 
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 

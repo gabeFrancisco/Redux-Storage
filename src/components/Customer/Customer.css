@@ -1,0 +1,29 @@
+.Customer{
+  border-left: 1px solid #aaa;
+  padding: 20px;
+}
+
+.Customer p{
+  text-align: justify
+}
+
+.Customer .Form{
+  display: flex;
+  flex-direction: row;
+  width: 25vw;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+
+.Customer .Form p{
+  text-align: end;
+  margin-left: 10px;
+}
+
+.Button-area{
+  display: flex;
+}
+
+.Button-area button{
+  margin: 5px;
+}

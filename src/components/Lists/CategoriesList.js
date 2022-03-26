@@ -22,7 +22,7 @@ export default function CategoriesList() {
             </tr>
           </thead>
           <tbody>
-            {categories ? (
+            {categories.length > 0 ? (
               categories.map((el, key) => {
                 return (
                   <tr key={key}>

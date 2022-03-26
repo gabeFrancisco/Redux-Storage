@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { readCustomer } from "../../store/actions/customersActions";
 import { Link } from 'react-router-dom'
 
-import "./CustomerInfo.css";
+import "./Customer.css";
 
 export default function CustomerInfo(props) {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function CustomerInfo(props) {
   }, [dispatch, props]);
 
   return (
-    <div className="CustomerInfo">
+    <div className="Customer">
         <Link to="/customers"> &lt;-BACK </Link>
         <p>
           <b>Name: </b>

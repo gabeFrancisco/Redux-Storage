@@ -24,7 +24,7 @@ export default function CustomersList(){
             </tr>
           </thead>
           <tbody>
-            {customers ? (
+            {customers.length > 0 ? (
               customers.map((el, key) => {
                 return (
                   <tr key={key}>

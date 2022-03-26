@@ -5,6 +5,7 @@ import ProductPage from "./pages/ProductsPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import CustomersPage from "./pages/CustomersPage";
 import ShowCustomerPage from "./pages/ShowCustomerPage";
+import NewCustomerPage from "./pages/NewCustomerPage";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="/categories" element={<CategoriesPage/>}/>
             <Route path="/customers" element={<CustomersPage/>} />
             <Route path="/customers/showCustomer" element={<ShowCustomerPage/>}/>
+            <Route path="/customers/newCustomer" element={<NewCustomerPage/>}/>
           </Routes> 
         </div>
       </div>

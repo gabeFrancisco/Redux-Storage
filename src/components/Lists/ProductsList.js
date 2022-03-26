@@ -30,7 +30,7 @@ export default function ProductsList() {
           </tr>
         </thead>
         <tbody>
-          {products ? (
+          {products.length > 0 ? (
             products.map((el, key) => {
               return (
                 <tr key={key}>
