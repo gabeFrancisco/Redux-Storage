@@ -44,7 +44,7 @@ export default function ProductsList() {
                     ></span>
                   </td>
                   <td>{el.quantity}</td>
-                  <td>${el.price}</td>
+                  <td>${parseFloat(el.price).toFixed(2)}</td>
                 </tr>
               );
             })

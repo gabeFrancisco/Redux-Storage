@@ -8,6 +8,7 @@ const { json } = require("body-parser");
 const db = require("./database/database");
 const Products = require("./database/models/products");
 const Categories = require("./database/models/categories");
+const Customers = require("./database/models/customers");
 
 db.authenticate()
   .then(() => {
@@ -20,7 +21,7 @@ db.authenticate()
 app.use(cors());
 app.use(json());
 
-//===========================//PRODUCTS//====================================
+//===========================//PRODUCTS//========================================
 
 app.get("/products", async (req, res) => {
   await Products.findAll({ raw: true }).then((products) => {
@@ -55,6 +56,18 @@ app.post("/categories", async (req, res) => {
 
   res.sendStatus(200);
 });
+
+//=========================//CUSTOMERS//==========================================
+
+app.get("/customers", async (req, res) => {
+  await Customers.findAll({raw: true}).then((customers) => {
+    return res.json(customers);
+  })
+})
+
+app.get("/customers/:id", async (req, res) => {
+  await Customers.findByPk(req.params.id).then(result => res.json(result))
+})
 
 app.listen(PORT, (err) => {
   if (err) console.log(`An error has occurred: ${err}`);

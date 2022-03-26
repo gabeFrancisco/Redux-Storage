@@ -1,0 +1,13 @@
+.CustomerInfo{
+  border: 1px solid #888;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.Button-area{
+  display: flex;
+}
+
+.Button-area button{
+  margin: 5px;
+}

@@ -15,6 +15,18 @@ body {
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar{
+  width: 7px;
+}
+
+body::-webkit-scrollbar-track{
+  background: #bbb;
+}
+
+body::-webkit-scrollbar-thumb{
+  background: #555;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -27,3 +39,5 @@ code {
 .animateContent{
   animation: AnimateContent 0.7s forwards;
 }
+
+
