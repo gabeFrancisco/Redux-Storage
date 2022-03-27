@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { addCategory } from "../../store/actions/categoriesActions";
+import { addNotification } from "../../store/actions/notificationsActions";
 
 export default function CategoryField() {
   const [color, setColor] = useState("#ffffff");
@@ -28,6 +29,11 @@ export default function CategoryField() {
       resetForm();
       setColor("#ffffff")
       dispatch(addCategory(category))
+      dispatch(addNotification({
+        title: "Category added!",
+        message: `The category ${category.name} was added to the system!`,
+        color: "Success" 
+      }))
     },
   });
 

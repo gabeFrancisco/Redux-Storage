@@ -7,6 +7,7 @@ import "./Customer.css";
 import { useDispatch } from "react-redux";
 import { addCustomer } from "../../store/actions/customersActions";
 import { useNavigate } from "react-router-dom";
+import { addNotification } from "../../store/actions/notificationsActions";
 
 export default function NewCustomer() {
   const dispatch = useDispatch();
@@ -45,6 +46,11 @@ export default function NewCustomer() {
     onSubmit: (values) => {
       const customer = values;
       dispatch(addCustomer(customer));
+      dispatch(addNotification({
+        title: "Customer added!",
+        message: `The customer ${customer.name} was added to the system!`,
+        color: "Success"
+      }))
       navigate("/customers");
     },
   });

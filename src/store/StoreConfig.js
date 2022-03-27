@@ -6,11 +6,13 @@ import thunk from 'redux-thunk'
 import productsReducer from './reducers/productsReducer'
 import categoriesReducer from './reducers/categoriesReducer'
 import customersReducer from './reducers/customersReducer'
+import notificationsReducer from './reducers/notificationsReducer'
 
 const reducers = combineReducers({
   products: productsReducer,
   categories: categoriesReducer,
-  customers: customersReducer
+  customers: customersReducer,
+  notifications: notificationsReducer
 })
 
 function storeConfig(){

@@ -7,6 +7,7 @@ import { addProduct } from "../../store/actions/productsActions";
 
 import * as Yup from "yup";
 import { fetchCategories } from "../../store/actions/categoriesActions";
+import { addNotification } from "../../store/actions/notificationsActions";
 
 export default function ProductField() {
   const categories = useSelector((state) => state.categories.list);
@@ -41,6 +42,11 @@ export default function ProductField() {
 
       resetForm();
       dispatch(addProduct(product));
+      dispatch(addNotification({
+        title: "Product added!",
+        message: `The product ${product.name} was added to the system!`,
+        color: 'Success'
+      }))
     },
   });
   return (
