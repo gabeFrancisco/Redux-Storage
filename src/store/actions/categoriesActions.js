@@ -16,7 +16,7 @@ export function addCategory(category){
   return async (dispatch) => {
     await axios 
       .post(BASE_URL, category)
-      .then((res) => {
+      .then((res) => {  
         if(res.status === 200){
           dispatch(fetchCategories())
         }

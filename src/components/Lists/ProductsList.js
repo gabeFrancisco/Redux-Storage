@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchCategories } from "../../store/actions/categoriesActions";
 import { fetchProducts } from "../../store/actions/productsActions";
 import ProductField from "../Fields/ProductField";
+import ProductRow from "../Rows/ProductRow";
 
 import "./List.css";
 
@@ -33,19 +34,21 @@ export default function ProductsList() {
           {products.length > 0 ? (
             products.map((el, key) => {
               return (
-                <tr key={key}>
-                  <th>{el.id}</th>
-                  <td>{el.name}</td>
-                  <td className="category">
-                    {el.category}
-                    <span
-                      id="category-color"
-                      style={{ backgroundColor: el.category ? categories.find(category => category.name === el.category).color : "#eeddff"}}
-                    ></span>
-                  </td>
-                  <td>{el.quantity}</td>
-                  <td>${parseFloat(el.price).toFixed(2)}</td>
-                </tr>
+                <ProductRow
+                  key={key}
+                  id={el.id}
+                  name={el.name}
+                  category={el.category}
+                  categoryColor={
+                    el.category
+                      ? categories.find(
+                          (category) => category.name === el.category
+                        ).color
+                      : "#eeddff"
+                  }
+                  quantity={el.quantity}
+                  price={el.price}
+                />
               );
             })
           ) : (

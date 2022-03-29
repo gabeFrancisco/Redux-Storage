@@ -28,3 +28,20 @@ export function addProduct(product) {
       );
   };
 }
+
+export function removeProduct(productId){
+  return async dispatch => {
+    await axios 
+      .delete(`${BASE_URL}/${productId}`)
+      .then(res => {
+        if(res.status === 200){
+          dispatch(fetchProducts())
+        }
+      })
+      .then(
+        dispatch({
+          type: "PRODUCT_REMOVED"
+        })
+      )
+  }
+}

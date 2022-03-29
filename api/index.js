@@ -41,6 +41,13 @@ app.post("/products", async (req, res) => {
   res.sendStatus(200);
 });
 
+app.delete("/products/:id", async (req, res) => {
+  await Products.destroy({
+    where: { id: req.params.id },
+  });
+  res.sendStatus(200);
+});
+
 //===========================//CATEGORIES//=======================================
 
 app.get("/categories", async (req, res) => {
@@ -95,11 +102,11 @@ app.post("/notifications", async (req, res) => {
   await Notifications.create({
     title: req.body.title,
     message: req.body.message,
-    color: req.body.color
-  }).catch(err => res.sendStatus(500))
+    color: req.body.color,
+  }).catch((err) => res.sendStatus(500));
 
-  res.sendStatus(200)
-})
+  res.sendStatus(200);
+});
 
 app.listen(PORT, (err) => {
   if (err) console.log(`An error has occurred: ${err}`);
