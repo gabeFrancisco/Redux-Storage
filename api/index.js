@@ -9,6 +9,7 @@ const db = require("./database/database");
 const Products = require("./database/models/products");
 const Categories = require("./database/models/categories");
 const Customers = require("./database/models/customers");
+const Notifications = require("./database/models/notifications");
 
 db.authenticate()
   .then(() => {
@@ -60,14 +61,14 @@ app.post("/categories", async (req, res) => {
 //=========================//CUSTOMERS//==========================================
 
 app.get("/customers", async (req, res) => {
-  await Customers.findAll({raw: true}).then((customers) => {
+  await Customers.findAll({ raw: true }).then((customers) => {
     return res.json(customers);
-  })
-})
+  });
+});
 
 app.get("/customers/:id", async (req, res) => {
-  await Customers.findByPk(req.params.id).then(result => res.json(result))
-})
+  await Customers.findByPk(req.params.id).then((result) => res.json(result));
+});
 
 app.post("/customers", async (req, res) => {
   await Customers.create({
@@ -77,7 +78,24 @@ app.post("/customers", async (req, res) => {
     address: req.body.address,
     city: req.body.city,
     country: req.body.country,
-    postalCode: req.body.postalCode
+    postalCode: req.body.postalCode,
+  }).catch((err) => res.sendStatus(500));
+
+  res.sendStatus(200);
+});
+
+//=========================//NOTIFICATIONS========================================
+app.get("/notifications", async (req, res) => {
+  await Notifications.findAll({ raw: true }).then((notifications) =>
+    res.json(notifications)
+  );
+});
+
+app.post("/notifications", async (req, res) => {
+  await Notifications.create({
+    title: req.body.title,
+    message: req.body.message,
+    color: req.body.color
   }).catch(err => res.sendStatus(500))
 
   res.sendStatus(200)

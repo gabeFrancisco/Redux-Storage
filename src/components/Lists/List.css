@@ -16,6 +16,23 @@
 .List table tbody tr th, td{
   padding-right: 1rem;
   padding: 7px;
+  border-left: 1px solid #000;
+}
+
+.Success{
+  background-color: #9aff9a;
+}
+
+.Information{
+  background-color: #c2d9ff;
+}
+
+.Warning{
+  background-color: #fafa95;
+}
+
+.Danger{
+  background-color: rgb(255, 168, 168);
 }
 
 #loading{

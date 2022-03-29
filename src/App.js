@@ -8,6 +8,7 @@ import ShowCustomerPage from "./pages/ShowCustomerPage";
 import NewCustomerPage from "./pages/NewCustomerPage";
 import Notification from "./components/Notification/Notification";
 import { useSelector } from "react-redux";
+import NotificationsPage from "./pages/NotificationsPage";
 
 export default function App() {
   const notifications = useSelector((state) => state.notifications);
@@ -30,8 +31,10 @@ export default function App() {
               path="/customers/newCustomer"
               element={<NewCustomerPage />}
             />
+            <Route path="/notifications" element={<NotificationsPage />} />
           </Routes>
         </div>
+
         {notifications.list &&
           notifications.list.map((el) => (
             <Notification title={el.title} message={el.message} />

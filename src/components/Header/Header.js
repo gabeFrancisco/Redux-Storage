@@ -27,6 +27,9 @@ export default function Header() {
         <li>
           <Link to="/customers">CUSTOMERS</Link>
         </li>
+        <li>
+          <Link to="/notifications">NOTIFICATIONS</Link>
+        </li>
       </ul>
     </div>
   );
