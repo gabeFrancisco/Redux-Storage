@@ -41,6 +41,7 @@ export default function ProductField() {
       };
 
       resetForm();
+      
       dispatch(addProduct(product));
       dispatch(addNotification({
         title: "Product added!",

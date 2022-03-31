@@ -29,6 +29,23 @@ export function addProduct(product) {
   };
 }
 
+export function updateProduct(product){
+  return async dispatch => {
+    return axios
+      .put(BASE_URL, product)
+      .then(res => {
+        if(res.status === 200){
+          dispatch(fetchProducts())
+        }
+      })
+      .then(
+        dispatch({
+          type: "PRODUCT_UPDATED"
+        })
+      )
+  }
+}
+
 export function removeProduct(productId){
   return async dispatch => {
     await axios 

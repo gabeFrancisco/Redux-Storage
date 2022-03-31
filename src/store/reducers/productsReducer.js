@@ -10,6 +10,8 @@ export default function (state = INITIAL_STATE, action) {
       return { ...state, list: action.list };
     case "PRODUCT_ADDED":
       return { ...state };
+    case "PRODUCT_UPDATED":
+      return { ...state };
     case "PRODUCT_REMOVED":
       return { ...state };
     default:

@@ -29,7 +29,6 @@ app.get("/products", async (req, res) => {
     return res.json(products);
   });
 });
-
 app.post("/products", async (req, res) => {
   await Products.create({
     name: req.body.name,
@@ -40,6 +39,17 @@ app.post("/products", async (req, res) => {
 
   res.sendStatus(200);
 });
+
+app.put("/products", async (req, res) => {
+  await Products.update({
+    name: req.body.name,
+    category: req.body.category,
+    quantity: req.body.quantity,
+    price: req.body.price,
+  }, { where: {id: req.body.id}})
+
+  res.sendStatus(200)
+})
 
 app.delete("/products/:id", async (req, res) => {
   await Products.destroy({
