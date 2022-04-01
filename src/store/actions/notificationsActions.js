@@ -24,6 +24,7 @@ export function addNotification(message) {
       .then(
         dispatch({
           type: "NOTIFICATION_ADDED",
+          notification: message
         })
       );
   };

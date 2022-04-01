@@ -9,7 +9,7 @@ export default function (state = INITIAL_STATE, action) {
     case "NOTIFICATIONS_FETCHED":
       return { ...state, list: action.list };
     case "NOTIFICATION_ADDED":
-      return { ...state };
+      return { ...state, notification: action.notification };
     default:
       return state;
   }

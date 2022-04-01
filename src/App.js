@@ -7,11 +7,15 @@ import CustomersPage from "./pages/CustomersPage";
 import ShowCustomerPage from "./pages/ShowCustomerPage";
 import NewCustomerPage from "./pages/NewCustomerPage";
 import Notification from "./components/Notification/Notification";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NotificationsPage from "./pages/NotificationsPage";
+import { useEffect } from "react";
+import { fetchNotifications } from "./store/actions/notificationsActions";
 
 export default function App() {
+  const dispatch = useDispatch()
   const notifications = useSelector((state) => state.notifications);
+  useEffect(() => dispatch(fetchNotifications()), [dispatch])
 
   return (
     <Router>
@@ -37,7 +41,7 @@ export default function App() {
 
         {notifications.list &&
           notifications.list.map((el) => (
-            <Notification title={el.title} message={el.message} />
+            <Notification title={el.title} message={el.message} color={el.color} />
           ))}
       </div>
     </Router>

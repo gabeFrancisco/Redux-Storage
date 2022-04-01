@@ -1,9 +1,9 @@
 @keyframes AnimateContent{
   0%{
-    transform: translateX(-20px)
+    opacity: 0%;
   }
   100%{
-    transform: translateX(0);
+    opacity: 100%;
   }
 }
 
@@ -37,7 +37,7 @@ code {
 }
 
 .animateContent{
-  animation: AnimateContent 0.7s forwards;
+  animation: AnimateContent 0.5s forwards;
 }
 
 

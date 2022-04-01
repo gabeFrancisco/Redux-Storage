@@ -11,7 +11,7 @@ export default function NotificationsList() {
   useEffect(() => dispatch(fetchNotifications()), [dispatch])
 
   return (
-    <div className="List">
+    <div className="List animateContent">
       <table>
         <thead>
           <tr>
@@ -28,7 +28,7 @@ export default function NotificationsList() {
                   <td>{el.message}</td>
                 </tr>
               );
-            })
+            }).reverse()
           ) : (
             <h1 id="loading">Nothing to show yet...</h1>
           )}

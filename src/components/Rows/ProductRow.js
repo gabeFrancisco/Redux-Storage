@@ -23,7 +23,7 @@ export default function ProductRow(props) {
       })
     );
   };
-
+  
   const formik = useFormik({
     initialValues: {
       name: props.name,
@@ -43,9 +43,16 @@ export default function ProductRow(props) {
       };
       dispatch(updateProduct(product));
       setEdit(false)
+      dispatch(
+        addNotification({
+          title: "Product updated!",
+          message: `The product ${props.name} was updated from the system!`,
+          color: "Information",
+        })
+      );
     },
   });
-
+  
   return (
     <>
       {

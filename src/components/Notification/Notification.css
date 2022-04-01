@@ -20,30 +20,28 @@
   z-index: 999;
   background-color: #fff;
   animation: Fade 6s forwards;
-  border: 1px #007e00 solid;
-  color: #007e00;
 }
 
 .Notification h3, p{
   margin: 5px;
 }
 
-.Notification .Success{
+.Success{
   border: 1px #007e00 solid;
   color: #007e00;
 }
 
-.Notification .Information{
+.Information{
   border: 1px #0053b1 solid;
   color: #0053b1;
 }
 
-.Notification .Warning{
+.Warning{
   border: 1px #b19600 solid;
   color: #b19600;
 }
 
-.Notification .Danger{
+.Danger{
   border: 1px #b10000 solid;
   color: #b10000;
 }
