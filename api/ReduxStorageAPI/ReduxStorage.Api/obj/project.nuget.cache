@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "tpDTdnSNoHNO6Yjo1kcIgZjcOEnksvWWarPh5GNpF4EOe2WHZO3qXwlr8aglKLu7tj3Gd+m2xBoGRSYribzqsA==",
+  "success": true,
+  "projectFilePath": "/mnt/76AAE8F7AAE8B531/React & Redux/fundamentos/redux-storage/api/ReduxStorageAPI/ReduxStorage.Api/ReduxStorage.Api.csproj",
+  "expectedPackageFiles": [
+    "/home/gabefrank/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/gabefrank/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/gabefrank/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "/home/gabefrank/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "/home/gabefrank/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "/home/gabefrank/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

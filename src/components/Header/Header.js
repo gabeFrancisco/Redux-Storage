@@ -28,6 +28,9 @@ export default function Header() {
           <Link to="/customers">CUSTOMERS</Link>
         </li>
         <li>
+          <Link to="/sales">SALES</Link>
+        </li>
+        <li>
           <Link to="/notifications">NOTIFICATIONS</Link>
         </li>
       </ul>
