@@ -7,7 +7,7 @@ namespace ReduxStorage.Api.Models
     {
         [Key]
         public int Id { get; set; }
-        public DateTime? _createdAt;
+        private DateTime? _createdAt;
         public DateTime? CreatedAt
         {
             get { return _createdAt; }
