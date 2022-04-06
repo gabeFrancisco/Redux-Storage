@@ -38,14 +38,8 @@ export default function ProductsList() {
                   key={key}
                   id={el.id}
                   name={el.name}
-                  category={el.category}
-                  categoryColor={
-                    el.category
-                      ? categories.find(
-                          (category) => category.name === el.category
-                        ).color
-                      : "#eeddff"
-                  }
+                  category={el.category.name}
+                  categoryColor={el.category.color}
                   quantity={el.quantity}
                   price={el.price}
                 />

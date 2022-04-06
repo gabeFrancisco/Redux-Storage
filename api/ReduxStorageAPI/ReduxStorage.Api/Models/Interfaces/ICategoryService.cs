@@ -10,6 +10,7 @@ namespace ReduxStorage.Api.Models.Interfaces
         Task<Category> ReadCategoryAsync(int id);
         Task<Category> UpdateCategoryAsync(Category category);
         Task<bool> DeleteCategoryAsync(int id);
-
+        Task<Category> ReadCategoryByName(string categoryName);
+        Task<bool> CheckCategoryName(string categoryName);
     }
 }
