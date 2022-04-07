@@ -11,10 +11,10 @@ namespace ReduxStorage.Api.Controllers
     [Route("api/[controller]")]
     public class CategoriesController : ControllerBase
     {
-        private readonly ICategoryService _categoryServices;
+        private readonly ICategoryService _categoryService;
         public CategoriesController(ICategoryService categoryService)
         {
-            _categoryServices = categoryService;
+            _categoryService = categoryService;
         }
 
         [HttpGet]
@@ -22,11 +22,24 @@ namespace ReduxStorage.Api.Controllers
         {
             try
             {
-                return Ok(await _categoryServices.GetAllCategoriesAsync());
+                return Ok(await _categoryService.GetAllCategoriesAsync());
             }
             catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while getting all categories!");
+            }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            try
+            {
+                return Ok(await _categoryService.ReadCategoryAsync(id));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while getting category!");
             }
         }
 
@@ -40,7 +53,7 @@ namespace ReduxStorage.Api.Controllers
                     return BadRequest(ModelState);
                 }
 
-                await _categoryServices.CreateCategoryAsync(category);
+                await _categoryService.CreateCategoryAsync(category);
                 return Ok(category);
             }
             catch (Exception)

@@ -58,12 +58,60 @@ namespace ReduxStorage.Api.Controllers
                 };
 
                 await _productService.CreateProductAsync(product);
-                
+
                 return Ok(product);
             }
             catch (Exception)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while getting all products!");
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while creating product!");
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] ProductDTO productDTO)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var category = await _categoryService.ReadCategoryByName(productDTO.Category);
+
+                if (category == null)
+                {
+                    return BadRequest("Category was not found!");
+                }
+
+                var productUpdated = new Product
+                {
+                    Id = (int)productDTO.Id,
+                    Name = productDTO.Name,
+                    Category = category,
+                    Quantity = productDTO.Quantity,
+                    Price = productDTO.Price
+                };
+
+                await _productService.UpdateProductAsync(productUpdated);
+                return Ok(productUpdated);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while updating product!" + ex);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                return Ok(await _productService.DeleteProductAsync(id));
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while removing product!");
             }
         }
     }

@@ -47,9 +47,9 @@ namespace ReduxStorage.Api.Services
             throw new System.NotImplementedException();
         }
 
-        public Task<Category> ReadCategoryAsync(int id)
+        public async Task<Category> ReadCategoryAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public Task<Category> UpdateCategoryAsync(Category category)
@@ -59,12 +59,12 @@ namespace ReduxStorage.Api.Services
 
         public async Task<Category> ReadCategoryByName(string categoryName)
         {
-            return await _context.Categories.FirstOrDefaultAsync(x => x.Name == categoryName);
+            return await _context.Categories.SingleOrDefaultAsync(x => x.Name == categoryName);
         }
 
         public async Task<bool> CheckCategoryName(string categoryName)
         {
-            var foundCategory = await _context.Categories.FirstOrDefaultAsync(x => x.Name == categoryName);
+            var foundCategory = await this.ReadCategoryByName(categoryName);
             if (foundCategory != null)
             {
                 return true;

@@ -31,19 +31,44 @@ namespace ReduxStorage.Api.Services
             return product;
         }
 
-        public Task<bool> DeleteProductAsync(int id)
+        public async Task<bool> DeleteProductAsync(int id)
         {
-            throw new System.NotImplementedException();
+            var result = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+            if (result == null)
+            {
+                return false;
+            }
+
+            _context.Products.Remove(result);
+            await _context.SaveChangesAsync();
+
+            return true;
         }
 
-        public Task<Product> ReadAsync(int id)
+        public async Task<Product> ReadAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public Task<Product> UpdateProductAsync(Product product)
+        public async Task<Product> UpdateProductAsync(Product product)
         {
-            throw new System.NotImplementedException();
+            var result = await _context.Products.FirstOrDefaultAsync(x => x.Id == product.Id);
+            if (result == null)
+            {
+                return null;
+            }
+            else
+            {
+                _context.Entry(result).State = EntityState.Detached;
+            }
+
+            product.CreatedAt = result.CreatedAt;
+            product.UpdatedAt = DateTime.UtcNow;
+
+            _context.Entry(product).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return product;
         }
     }
 }
