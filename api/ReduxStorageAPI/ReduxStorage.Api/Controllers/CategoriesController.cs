@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ReduxStorage.Api.Exceptions;
 using ReduxStorage.Api.Models;
 using ReduxStorage.Api.Models.Interfaces;
 
@@ -55,6 +56,10 @@ namespace ReduxStorage.Api.Controllers
 
                 await _categoryService.CreateCategoryAsync(category);
                 return Ok(category);
+            }
+            catch (RepeatedNameException)
+            {
+                return StatusCode(StatusCodes.Status409Conflict, "This category already exists!");
             }
             catch (Exception)
             {

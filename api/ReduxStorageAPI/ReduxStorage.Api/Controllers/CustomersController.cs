@@ -8,7 +8,7 @@ using ReduxStorage.Api.Models.Interfaces;
 namespace ReduxStorage.Api.Controllers
 {
     [ApiController]
-    [Route("/api/[controller]")]
+    [Route("api/[controller]")]
     public class CustomersController : ControllerBase
     {
         private readonly ICustomerService _customerService;

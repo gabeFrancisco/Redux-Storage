@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:7000/notifications";
+const BASE_URL = "https://localhost:5001/api/notifications";
 
 export function fetchNotifications() {
   return async (dispatch) => {

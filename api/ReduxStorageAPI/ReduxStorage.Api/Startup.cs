@@ -48,6 +48,7 @@ namespace ReduxStorage.Api
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<INotificationService, NotificationService>();
 
             services.AddControllers()
                 .AddNewtonsoftJson(options =>

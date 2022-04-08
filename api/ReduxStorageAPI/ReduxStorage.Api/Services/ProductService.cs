@@ -52,16 +52,15 @@ namespace ReduxStorage.Api.Services
 
         public async Task<Product> UpdateProductAsync(Product product)
         {
-            var result = await _context.Products.FirstOrDefaultAsync(x => x.Id == product.Id);
+            var result = await _context.Products
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == product.Id);
+
             if (result == null)
             {
                 return null;
             }
-            else
-            {
-                _context.Entry(result).State = EntityState.Detached;
-            }
-
+    
             product.CreatedAt = result.CreatedAt;
             product.UpdatedAt = DateTime.UtcNow;
 
