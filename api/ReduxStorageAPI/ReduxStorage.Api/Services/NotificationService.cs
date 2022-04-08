@@ -26,6 +26,8 @@ namespace ReduxStorage.Api.Services
             {
                 throw new NullReferenceException("Notification cannot be null!");
             }
+            
+            notification.CreatedAt = DateTime.UtcNow;
 
             _context.Notifications.Add(notification);
             await _context.SaveChangesAsync();

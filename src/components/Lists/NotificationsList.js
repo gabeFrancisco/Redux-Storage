@@ -24,7 +24,7 @@ export default function NotificationsList() {
             notifications.map((el, key) => {
               return (
                 <tr key={key} className={el.color}>
-                  <td><b>{el.title}</b></td>
+                  <td><b>{el.title} / <small>{el.createdAt}</small></b></td>
                   <td>{el.message}</td>
                 </tr>
               );

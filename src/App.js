@@ -44,6 +44,7 @@ export default function App() {
         {notifications.list &&
           notifications.list.map((el) => (
             <Notification
+              date={el.createdAt}
               title={el.title}
               message={el.message}
               color={el.color}
