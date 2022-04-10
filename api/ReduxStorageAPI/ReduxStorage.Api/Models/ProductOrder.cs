@@ -2,7 +2,8 @@ namespace ReduxStorage.Api.Models
 {
     public class ProductOrder : BaseEntity
     {
-        public Product Product { get; set; }
+        public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
         public int Quantity { get; set; }
         private decimal _totalValue;
         public decimal TotalValue

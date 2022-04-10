@@ -19,7 +19,10 @@ namespace ReduxStorage.Api.Services
         public async Task<IEnumerable<Sale>> GetSalesAsync()
         {
             return await _context.Sales
-                .Include(x => x.Customer)
+                .Include(sale => sale.Customer)
+                .Include(sale => sale.ProductOrders)
+                .ThenInclude(pOrder => pOrder.Product)
+                .ThenInclude(product => product.Category)
                 .ToListAsync();
         }
 
