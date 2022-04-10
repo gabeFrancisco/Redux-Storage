@@ -7,14 +7,14 @@ namespace ReduxStorage.Api.Models
     {
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
-        public IEnumerable<Product> Products { get; set; }
+        public IEnumerable<ProductOrder> ProductOrders { get; set; }
         private decimal _totalValue;
         public decimal TotalValue
         {
             get { return _totalValue; }
             set
             {
-                _totalValue = this.Products.Sum(x => x.Price);
+                _totalValue = this.ProductOrders.Sum(x => x.TotalValue);
             }
         }
     }

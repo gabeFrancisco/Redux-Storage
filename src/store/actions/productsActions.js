@@ -22,7 +22,7 @@ export function addProduct(product) {
         }
       })
       .then(
-        dispatch({
+        dispatch({  
           type: "PRODUCT_ADDED",
         })
       );

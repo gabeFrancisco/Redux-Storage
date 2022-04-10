@@ -9,8 +9,8 @@ using ReduxStorage.Api.Context;
 namespace ReduxStorage.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220407005049_Second")]
-    partial class Second
+    [Migration("20220410014242_InitialFix")]
+    partial class InitialFix
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -137,6 +137,64 @@ namespace ReduxStorage.Api.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("ReduxStorage.Api.Models.ProductOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SaleId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalValue")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("SaleId");
+
+                    b.ToTable("ProductOrders");
+                });
+
+            modelBuilder.Entity("ReduxStorage.Api.Models.Sale", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalValue")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Sales");
+                });
+
             modelBuilder.Entity("ReduxStorage.Api.Models.Product", b =>
                 {
                     b.HasOne("ReduxStorage.Api.Models.Category", "Category")
@@ -146,6 +204,35 @@ namespace ReduxStorage.Api.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("ReduxStorage.Api.Models.ProductOrder", b =>
+                {
+                    b.HasOne("ReduxStorage.Api.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("ReduxStorage.Api.Models.Sale", null)
+                        .WithMany("ProductOrders")
+                        .HasForeignKey("SaleId");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("ReduxStorage.Api.Models.Sale", b =>
+                {
+                    b.HasOne("ReduxStorage.Api.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("ReduxStorage.Api.Models.Sale", b =>
+                {
+                    b.Navigation("ProductOrders");
                 });
 #pragma warning restore 612, 618
         }

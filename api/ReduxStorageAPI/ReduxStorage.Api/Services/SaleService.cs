@@ -20,7 +20,6 @@ namespace ReduxStorage.Api.Services
         {
             return await _context.Sales
                 .Include(x => x.Customer)
-                .Include(x => x.Products)
                 .ToListAsync();
         }
 
@@ -31,7 +30,7 @@ namespace ReduxStorage.Api.Services
                 throw new NullReferenceException("Sale cannot be null");
             }
 
-            if (sale.Products == null)
+            if (sale.ProductOrders == null)
             {
                 throw new InvalidOperationException("The sale must have at least one product!");
             }
