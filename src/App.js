@@ -12,6 +12,7 @@ import NotificationsPage from "./pages/NotificationsPage";
 import { useEffect } from "react";
 import { fetchNotifications } from "./store/actions/notificationsActions";
 import SalesPage from "./pages/SalesPage";
+import NewSalePage from "./pages/NewSalePage";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ export default function App() {
             />
             <Route path="/notifications" element={<NotificationsPage />} />
             <Route path="/sales" element={<SalesPage/>}/>
+            <Route path="/sales/newSale" element={<NewSalePage/>}/>
           </Routes>
         </div>
 

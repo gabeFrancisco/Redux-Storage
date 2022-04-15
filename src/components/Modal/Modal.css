@@ -1,0 +1,39 @@
+.Modal{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dadadac7;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Modal-Frame{
+  position: absolute;
+  top: 30%;
+  background-color: #f3f3f3;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border: 1px solid #aaa;
+}
+
+.Modal-Title{
+  border-bottom: 1px solid #aaa;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.Modal-Title h2{
+  margin: 5px;
+}
+
+
+
+
+
+
+
+

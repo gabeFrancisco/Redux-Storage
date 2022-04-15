@@ -40,4 +40,14 @@ code {
   animation: AnimateContent 0.5s forwards;
 }
 
+.dmargin{
+  margin: 10px;
+}
+
+.center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 

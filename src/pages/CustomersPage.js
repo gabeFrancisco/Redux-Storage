@@ -17,7 +17,7 @@ export default function CustomersPage() {
       <Container>
         <CustomersList />
         <div style={{ margin: "15px" }}>
-          <button style={{ padding: "5px" }} onClick={() => navigate('newCustomer')}>New customer!</button>
+          <button style={{ padding: "5px" }} onClick={() => navigate('newCustomer')}>New customer +</button>
         </div>
       </Container>
     </div>
