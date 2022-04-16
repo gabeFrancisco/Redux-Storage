@@ -8,13 +8,15 @@ import categoriesReducer from './reducers/categoriesReducer'
 import customersReducer from './reducers/customersReducer'
 import notificationsReducer from './reducers/notificationsReducer'
 import salesReducer from './reducers/salesReducer'
+import newSaleReducer from './reducers/newSaleReducer'
 
 const reducers = combineReducers({
   products: productsReducer,
   categories: categoriesReducer,
   customers: customersReducer,
   notifications: notificationsReducer,
-  sales: salesReducer
+  sales: salesReducer,
+  newSale: newSaleReducer
 })
 
 function storeConfig(){

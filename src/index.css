@@ -50,4 +50,11 @@ code {
   align-items: center;
 }
 
+button{
+  border: 1px solid #777;
+}
+
+button:hover{
+  background-color: #b6c4ff;
+}
 

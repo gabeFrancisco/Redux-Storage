@@ -24,3 +24,21 @@
   padding-left: 5px;
   padding-right: 15px;
 }
+
+.Customer-List{
+  border: 1px solid #cccccc;
+  padding: 5px;
+  height: 100%;
+}
+
+.Customer-Result{
+  border: 1px solid #cccccc;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.Customer-Result:hover{
+  background-color: #b6c4ff;
+  cursor: pointer;
+}

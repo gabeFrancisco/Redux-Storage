@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCustomers } from "../../store/actions/customersActions";
+import { addCustomerToSale } from "../../store/actions/newSaleActions"
 
 import Modal from '../Modal/Modal';
 
@@ -11,25 +12,61 @@ export default function NewSale() {
   const customers = useSelector((state) => state.customers.list);
 
   const [clientModal, setClientModal] = useState(false)
+  const [selectedCustomer, setSelectedCustomer] = useState({})
 
   useEffect(() => dispatch(fetchCustomers()), [dispatch]);
+
+  const newSale = useSelector((state) => state.newSale)
 
   return (
     <div className="Sale List">
       <div className="Form">
-        <h3>Customer: Jesus Christ</h3>
+        <h3>Customer: {(newSale.customer) ? newSale.customer.name : " "}</h3>
         <button type="button" onClick={() => setClientModal(true)}>Select customer</button>
+
+
         <Modal 
           visibility={clientModal} 
           handleVisibility={setClientModal} 
           title="Add customer..."
-          vwidth={50}
-          vheight={50}
+          vwidth={40}
+          vheight={60}
         >
           <div className="Form">
-            <input type="text"/>
+            <span className="dmargin">Search customer</span>
+            <input className="dmargin" placeholder="Type a customer to search..." type="text"/>
+            <small className="dmargin">
+              This text box has a "debounce" algorithm.
+              You type, stop, then await for the result
+            </small>
+          </div>
+          <div className="Form Customer-List dmargin">
+            {customers.length > 0 ? (
+              customers.map((el, key) => {
+                return (
+                  <div 
+                    className="Customer-Result"
+                    onClick={() => {
+                      setSelectedCustomer(el)
+                    }}
+                    style={{
+                      backgroundColor: (selectedCustomer.id === el.id) ? "#6e86f5" : "inherit",
+                      color: (selectedCustomer.id === el.id) ? "#fff" : "#000"
+                    }}
+                  >{el.name}</div>
+                )
+              })
+            ) : (<h1 id="loading">Loading</h1>)}
+          </div>
+          <div className="Form dmargin">
+            <button type="button" onClick={() => {
+              dispatch(addCustomerToSale(selectedCustomer))
+              setClientModal(false)
+              console.log(newSale)
+            }}>Submit!</button>
           </div>
         </Modal>
+
       </div>
       <div className="ProductOrders Form">
         <table>
