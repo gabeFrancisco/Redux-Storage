@@ -10,7 +10,8 @@ export default function Modal(props){
 
   const frameStyle = {
     width: `${props.vwidth}vw`,
-    height: `${props.vheight}vh`
+    height: `${props.vheight}vh,`,
+    zIndex: props.zindex
   }
 
   return(

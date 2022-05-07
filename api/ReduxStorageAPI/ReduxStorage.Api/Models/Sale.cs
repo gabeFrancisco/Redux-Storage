@@ -14,7 +14,7 @@ namespace ReduxStorage.Api.Models
             get { return _totalValue; }
             set
             {
-                _totalValue = this.ProductOrders.Sum(x => x.TotalValue);
+                _totalValue = (value == 0M ? this.ProductOrders.Sum(x => x.TotalValue) : value);
             }
         }
     }

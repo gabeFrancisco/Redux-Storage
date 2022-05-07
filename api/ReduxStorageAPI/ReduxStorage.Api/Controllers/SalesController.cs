@@ -41,12 +41,22 @@ namespace ReduxStorage.Api.Controllers
                     return BadRequest(ModelState);
                 }
 
+                sale.CustomerId = sale.Customer.Id;
+                sale.Customer = null;
+
+                foreach (var productOrder in sale.ProductOrders)
+                {
+                    productOrder.Product.Category = null;
+                    productOrder.ProductId = productOrder.Product.Id;
+                    productOrder.Product = null;
+                }
+
                 await _saleService.CreateSaleAsync(sale);
                 return Ok(sale);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while creating sale!");
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while creating sale!" + ex);
             }
         }
     }

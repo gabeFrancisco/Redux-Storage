@@ -54,7 +54,7 @@ namespace ReduxStorage.Api.Services
         public Task<bool> RemoveSale(int id)
         {
             throw new System.NotImplementedException();
-        }
+        }   
 
         public Task<Sale> UpdateSale(Sale sale)
         {

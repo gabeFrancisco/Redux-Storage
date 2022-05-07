@@ -1,0 +1,42 @@
+.ProductOrderField{
+  margin: 30px 0 15px 0;
+  border-top: 1px solid #aaa;
+  padding: 15px 0 15px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.ProductOrderField .Product-Selection-Area{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.ProductOrderField .Product-Selection-Area ul{
+  border: 1px solid #aaa;
+  list-style: none;
+  padding: 5px;
+  overflow-Y: scroll;
+  height: 25vh;
+}
+
+.ProductOrderField .Product-Selection-Area ul li{
+  padding: 5px;
+  border-top: 1px solid #aaa;
+  cursor: pointer;
+}
+
+.ProductOrderField .Product-Selection-Area ul li:hover{
+  background-color: #6e86f5;
+  color: #fff;
+}
+
+.ProductOrderField .Quantity-Area{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+

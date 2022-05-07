@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSales } from "../../store/actions/salesActions";
 
+import './List.css'
+
 export default function SalesList() {
   const dispatch = useDispatch();
   const sales = useSelector((state) => state.sales.list);
@@ -27,7 +29,7 @@ export default function SalesList() {
                   <tr key={key}>
                     <td>{el.createdAt}</td>
                     <td>{el.customer.name}</td>
-                    <td>
+                    <td className="Sale-Products">
                       <table>
                         <th>Name</th>
                         <th>Quantity</th>

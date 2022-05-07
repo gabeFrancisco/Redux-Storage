@@ -50,3 +50,8 @@
   width: 10px;
 }
 
+.Sale-Products{
+  display: flex;
+  flex-direction: column;
+}
+
